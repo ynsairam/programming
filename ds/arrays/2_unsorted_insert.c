@@ -5,7 +5,7 @@
 // Inserts a key in arr[] of given capacity.  n is current
 // size of arr[]. This function returns n+1 if insertion
 // is successful, else n.
-int insertSorted(int arr[], int n, int key, int capacity)
+int insertUnsorted(int arr[], int n, int key, int capacity)
 {
     // Cannot insert more elements if n is already
     // more than or equal to capcity
@@ -30,7 +30,7 @@ int main()
         printf("%d  ", arr[i]);
  
     // Inserting key
-    n = insertSorted(arr, n, key, capacity);
+    n = insertUnsorted(arr, n, key, capacity);
  
     printf("\nAfter Insertion: ");
     for (i=0; i<n; i++)
