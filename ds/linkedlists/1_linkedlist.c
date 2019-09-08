@@ -8,11 +8,27 @@ struct Node_t *n;
 
 Node *head;
 
-void insert(int d, int n) {
+void insertBeginning(int d) {
 Node *temp = malloc(sizeof(Node));
 temp->d = d;
 temp->n = head;
 head = temp;
+}
+
+void insertEnd(int d) {
+Node *h = head; 
+Node *temp = malloc(sizeof(Node));
+temp->d = d;
+temp->n = NULL;
+
+if (head==NULL)
+  head=temp;
+else {
+  Node *h = head; 
+  while(h->n!=NULL)
+    h = h->n;
+  h->n = temp;
+}
 }
 
 void print( ) {
@@ -27,14 +43,16 @@ printf("\n");
 
 int main( ) {
 head = NULL;
-int n;
+int n, i, x;
 printf("Num of elements: \n"); 
 scanf("%d", &n);
+for(i=0; i<n; i++) {
+  printf("Enter the number \n");
+  scanf("%d", &x); 
+  insertBeginning(x); 
+  //insertEnd(x);
+  print( );
+}
 
-    insert(2, 1); //2
-    insert(3, 2); //2, 3
-    insert(4, 1); //4, 2, 3
-    insert(5, 2); //4, 5, 2, 3
-    print( );
 return 0;
 }
